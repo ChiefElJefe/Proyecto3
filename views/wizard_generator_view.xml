@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="proyecto3_wizardgenerator_form">
+            <field name="name">proyecto3.wizardgenerator.form</field>
+            <field name="model">proyecto3.wizardgenerator</field>
+            <field name="arch" type="xml">
+                <form string="Key code" create="0" write="0" delete="0">
+                    <header>
+                        <button name="create_codes" string="Generate Keycodes" type="object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                    <footer>
+
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="proyecto3_wizardgenerator_action">
+            <field name="name">Wizard Generator</field>
+            <field name="res_model">proyecto3.wizardgenerator</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="proyecto3_wizardgenerator_form"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

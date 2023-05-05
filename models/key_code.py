@@ -1,0 +1,33 @@
+from odoo import models, fields, api
+import random
+import string
+
+
+class Key_code(models.Model):
+    _name = 'proyecto3.keycode'
+    _description = 'proyecto3.keycode'
+
+    name = fields.Char(string="Product")
+    key_code = fields.Char(string="Key code")
+    creation_date = fields.Date(string="Creation Date", default=fields.Date.context_today)
+    buy_date = fields.Date(string="Buy date")
+    used = fields.Boolean(string="Used")
+
+    # def code_generator(self):
+    #     existe = True
+    #     while existe:
+    #         codes = '-'.join([''.join(random.choices(string.ascii_uppercase + string.digits, k=5)) for i in range(3)])
+    #         search_codes = self.env['proyecto3.keycode'].search([('key_code', '=', codes)])
+    #         if not search_codes:
+    #             existe = False
+    #             print(codes)
+    #             return codes
+    #
+    # def create_codes(self):
+    #     for i in range(50):
+    #         new_record = self.create({
+    #             'name': 'Game1',
+    #             'key_code': self.code_generator()
+    #         })
+    #
+    #     return True
