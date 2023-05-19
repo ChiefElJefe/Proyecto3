@@ -11,6 +11,8 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="list_price"/>
+                            <field name="tax_id"/>
                         </group>
                     </sheet>
                     <footer>

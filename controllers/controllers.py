@@ -2,7 +2,7 @@
 # from odoo import http
 
 
-# class Proyecto3(http.Controller):
+# class proyecto3(http.Controller):
 #     @http.route('/proyecto3/proyecto3', auth='public')
 #     def index(self, **kw):
 #         return "Hello, world"

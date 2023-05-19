@@ -8,7 +8,7 @@
                     <field name="name"/>
                     <field name="key_code"/>
                     <field name="creation_date"/>
-                    <field name="buy_date"/>
+                    <field name="sell_date"/>
                     <field name="used"/>
                 </tree>
             </field>
@@ -21,14 +21,29 @@
                 <form string="Key code">
                     <sheet>
                         <group>
-                            <field name="name"/>
-                            <field name="key_code"/>
-                            <field name="creation_date" readonly="1"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="key_code"/>
+                            </group>
+                            <group>
+                                <field name="creation_date" readonly="1"/>
+                            </group>
                         </group>
-                        <group>
-                            <field name="buy_date"/>
-                            <field name="used"/>
-                        </group>
+                        <notebook>
+                            <page string="Price">
+                                <group>
+                                    <field name="list_price"/>
+                                    <field name="tax_id"/>
+                                    <field name="standard_price"/>
+                                </group>
+                            </page>
+                            <page string="State Information">
+                                <group>
+                                    <field name="sell_date"/>
+                                    <field name="used"/>
+                                </group>
+                            </page>
+                        </notebook>
                     </sheet>
                 </form>
             </field>

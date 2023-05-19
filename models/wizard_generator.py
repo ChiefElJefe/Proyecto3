@@ -9,6 +9,8 @@ class Wizard_generator(models.TransientModel):
     _description = 'proyecto3.wizardgenerator'
 
     name = fields.Char(string="Product name")
+    list_price = fields.Float(string="Cost Price")
+    tax_id = fields.Many2one('account.tax', string="Tax")
 
     def code_generator(self):
         existe = True
@@ -17,8 +19,14 @@ class Wizard_generator(models.TransientModel):
             search_codes = self.env['proyecto3.keycode'].search([('key_code', '=', codes)])
             if not search_codes:
                 existe = False
-                print(codes)
+                # print(codes)
                 return codes
+
+    def tax_cal(self):
+        for rec in self:
+            tax_percent = rec.tax_id.amount / 100
+            price_calc = rec.list_price + (rec.list_price * tax_percent)
+            return price_calc
 
     def create_codes(self):
         if not self.name:
@@ -28,7 +36,10 @@ class Wizard_generator(models.TransientModel):
             for i in range(50):
                 new_record = self.env['proyecto3.keycode'].create({
                     'name': self.name,
-                    'key_code': self.code_generator()
+                    'list_price': self.list_price,
+                    'key_code': self.code_generator(),
+                    'tax_id': self.tax_id.id,
+                    'standard_price': self.tax_cal(),
                 })
 
             return {
