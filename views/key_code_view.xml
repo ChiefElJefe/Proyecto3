@@ -27,6 +27,7 @@
                             </group>
                             <group>
                                 <field name="creation_date" readonly="1"/>
+                                <field name="sell_id"/>
                             </group>
                         </group>
                         <notebook>
@@ -64,5 +65,7 @@
                   action="proyecto3_keycode_action"/>
         <menuitem name="Wizard Generator" id="proyecto3.menu_2_list" parent="proyecto3.menu_root"
                   action="proyecto3.proyecto3_wizardgenerator_action"/>
+        <menuitem name="Sells" id="proyecto3.menu_3_list" parent="proyecto3.menu_root"
+                  action="proyecto3.proyecto3_codessells_action"/>
     </data>
 </odoo>

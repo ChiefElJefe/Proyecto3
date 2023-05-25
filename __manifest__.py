@@ -26,6 +26,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/wizard_generator_view.xml',
+        'views/codes_sells_view.xml',
         'views/key_code_view.xml',
         'views/views.xml',
         'views/templates.xml',

@@ -3,3 +3,4 @@
 from . import models
 from . import key_code
 from . import wizard_generator
+from . import codes_sells

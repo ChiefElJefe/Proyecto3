@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="proyecto3_codessells_tree">
+            <field name="name">proyecto3.codessells.tree</field>
+            <field name="model">proyecto3.codessells</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="sell_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="proyecto3_codessells_form">
+            <field name="name">proyecto3.codessells.form</field>
+            <field name="model">proyecto3.codessells</field>
+            <field name="arch" type="xml">
+                <form string="Key code">
+                    <sheet>
+                        <group>
+                            <group string="User">
+                                <field name="name"/>
+                                <field name="first_lastname"/>
+                                <field name="second_lastname"/>
+                                <field name="mobilphone"/>
+                                <field name="email"/>
+                            </group>
+                            <group string="Direction">
+                                <field name="street"/>
+                                <field name="portal"/>
+                                <field name="door"/>
+                                <field name="city"/>
+                                <field name="country_id"/>
+                                <field name="province_id" domain="[('country_id','=?',country_id)]"/>
+                                <field name="zip"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Key code Quantity">
+                                <group>
+                                    <field name="keycode_ids"/>
+                                </group>
+                            </page>
+                            <page string="Currency">
+                                <group>
+                                    <field name="currency_id"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="proyecto3_codessells_action">
+            <field name="name">Sells</field>
+            <field name="res_model">proyecto3.codessells</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
