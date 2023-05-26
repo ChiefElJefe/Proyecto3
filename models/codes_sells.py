@@ -1,5 +1,9 @@
 from odoo import models, fields, api
 
+pay_form = [
+    ('credit', 'Credit Card'), ('paypar', 'Paypar')
+]
+
 
 class Codes_sells(models.Model):
     _name = 'proyecto3.codessells'
@@ -19,5 +23,10 @@ class Codes_sells(models.Model):
     province_id = fields.Many2one('res.country.state', string="Province")
     zip = fields.Char(string="C.P.")
     currency_id = fields.Many2one('res.currency', string="Country", required=True)
-    keycode_ids = fields.One2many('proyecto3.keycode', 'sell_id')
-
+    keycode_ids = fields.One2many('proyecto3.saleline', 'sello_id')
+    pay_count = fields.Char(string="Count")
+    card_name = fields.Char(string="Card name")
+    card_number = fields.Integer(string="Card number")
+    card_ex = fields.Date(string="Expiration date")
+    cvv = fields.Integer(string="CVV")
+    type_pay = fields.Selection(pay_form, string="Type pay", default='paypar')

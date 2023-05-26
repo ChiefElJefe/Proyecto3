@@ -27,7 +27,7 @@
                             </group>
                             <group>
                                 <field name="creation_date" readonly="1"/>
-                                <field name="sell_id"/>
+<!--                                <field name="sell_id"/>-->
                             </group>
                         </group>
                         <notebook>

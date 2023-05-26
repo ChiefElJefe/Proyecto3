@@ -8,6 +8,7 @@
                     <field name="name"/>
                     <field name="email"/>
                     <field name="sell_date"/>
+                    <field name="type_pay"/>
                 </tree>
             </field>
         </record>
@@ -45,6 +46,20 @@
                             <page string="Currency">
                                 <group>
                                     <field name="currency_id"/>
+                                </group>
+                            </page>
+                            <page string="Pay">
+                                <group>
+                                    <group>
+                                        <field name="type_pay"/>
+                                    </group>
+                                    <group>
+                                        <field name="pay_count" attrs="{'invisible':[('type_pay','!=','paypar')]}"/>
+                                        <field name="card_name" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
+                                        <field name="card_number" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
+                                        <field name="card_ex" widget="date" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
+                                        <field name="cvv" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
+                                    </group>
                                 </group>
                             </page>
                         </notebook>

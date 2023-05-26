@@ -13,7 +13,7 @@ class Key_code(models.Model):
     list_price = fields.Float(string="Cost Price", widget="monetary")
     tax_id = fields.Many2one('account.tax', string="Tax")
     standard_price = fields.Float(string="Sale Price", widget="monetary")
-    sell_id = fields.Many2one('proyecto3.codessells', string="Sell")
+    # sell_id = fields.Many2one('proyecto3.codessells', string="Sell")
 
     # def code_generator(self):
     #     existe = True
