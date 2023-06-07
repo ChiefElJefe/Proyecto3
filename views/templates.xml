@@ -1,24 +1,36 @@
 <odoo>
     <data>
-<!--
-        <template id="listing">
-          <ul>
-            <li t-foreach="objects" t-as="object">
-              <a t-attf-href="#{ root }/objects/#{ object.id }">
-                <t t-esc="object.display_name"/>
-              </a>
-            </li>
-          </ul>
-        </template>
-        <template id="object">
-          <h1><t t-esc="object.display_name"/></h1>
-          <dl>
-            <t t-foreach="object._fields" t-as="field">
-              <dt><t t-esc="field"/></dt>
-              <dd><t t-esc="object[field]"/></dd>
+        <record id="menu_form_cantidad" model="website.menu">
+            <field name="name">Cantidad</field>
+            <field name="url">/cantidad</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence">55</field>
+        </record>
+
+        <template id="create_cantidad" name="Report incidence">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section>
+                        <div class="css_quantity input-group d-inline-flex mr-2 my-1 align-middle"
+                             contenteditable="false">
+                            <div class="input-group-prepend">
+                                <a t-attf-href="#" class="btn btn-primary js_add_cart_json" aria-label="Remove one"
+                                   title="Remove one">
+                                    <i class="fa fa-minus"></i>
+                                </a>
+                            </div>
+                            <input type="text" class="form-control quantity" data-min="1" name="add_qty"
+                                   t-att-value="add_qty or 1"/>
+                            <div class="input-group-append">
+                                <a t-attf-href="#" class="btn btn-primary float_left js_add_cart_json"
+                                   aria-label="Add one" title="Add one">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </t>
-          </dl>
         </template>
--->
     </data>
 </odoo>

@@ -20,7 +20,13 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','website'],
+    'depends': ['base', 'website','website_sale'],
+
+    'assets': {
+        'web.assets_frontend': [
+            'website_sale/static/src/js/website_sale.js',
+        ],
+    },
 
     # always loaded
     'data': [

@@ -57,7 +57,8 @@
                                         <field name="pay_count" attrs="{'invisible':[('type_pay','!=','paypar')]}"/>
                                         <field name="card_name" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
                                         <field name="card_number" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
-                                        <field name="card_ex" widget="date" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
+                                        <field name="card_ex_month" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
+                                        <field name="card_ex_year" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
                                         <field name="cvv" attrs="{'invisible':[('type_pay','!=','credit')]}"/>
                                     </group>
                                 </group>
@@ -67,7 +68,6 @@
                 </form>
             </field>
         </record>
-
 
         <record model="ir.actions.act_window" id="proyecto3_codessells_action">
             <field name="name">Sells</field>

@@ -1,4 +1,7 @@
+from datetime import datetime
+
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 pay_form = [
     ('credit', 'Credit Card'), ('paypar', 'Paypar')
@@ -27,6 +30,7 @@ class Codes_sells(models.Model):
     pay_count = fields.Char(string="Count")
     card_name = fields.Char(string="Card name")
     card_number = fields.Integer(string="Card number")
-    card_ex = fields.Date(string="Expiration date")
+    card_ex_month = fields.Char(string="Expiration Date Month")
+    card_ex_year = fields.Char(string="Expiration Date Year")
     cvv = fields.Integer(string="CVV")
     type_pay = fields.Selection(pay_form, string="Type pay", default='paypar')
