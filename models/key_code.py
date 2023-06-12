@@ -9,7 +9,7 @@ class Key_code(models.Model):
     key_code = fields.Char(string="Key code")
     creation_date = fields.Date(string="Creation Date", default=fields.Date.context_today)
     sell_date = fields.Date(string="sell date")
-    used = fields.Boolean(string="Used")
+    selled = fields.Boolean(string="Selled")
     list_price = fields.Float(string="Cost Price")
     tax_id = fields.Many2one('account.tax', string="Tax")
     standard_price = fields.Float(string="Sale Price")

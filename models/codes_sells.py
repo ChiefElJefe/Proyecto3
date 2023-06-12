@@ -35,5 +35,14 @@ class Codes_sells(models.Model):
     cvv = fields.Integer(string="CVV")
     type_pay = fields.Selection(pay_form, string="Type pay", default='paypar')
 
+    @api.model
+    def create(self, vals):
+        record = super(Codes_sells, self).create(vals)
+        record.keycode_ids.code_id.write({'selled': True})
+        return record
 
-
+    def write(self, vals):
+        for record in self:
+            print(record.keycode_ids)
+            record.keycode_ids.code_id.write({'selled': True})
+        return super(Codes_sells, self).write(vals)

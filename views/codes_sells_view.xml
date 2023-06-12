@@ -46,7 +46,7 @@
                                             <field name="key_code"/>
                                             <field name="creation_date"/>
                                             <field name="sell_date"/>
-                                            <field name="used"/>
+                                            <field name="selled"/>
                                         </tree>
                                     </field>
                                 </group>

@@ -10,7 +10,7 @@ class Sale_line(models.Model):
     key_code = fields.Char(string="Key code", related="code_id.key_code")
     creation_date = fields.Date(string="Creation Date", related="code_id.creation_date")
     sell_date = fields.Date(string="sell date", related="code_id.sell_date")
-    used = fields.Boolean(string="Used", related="code_id.used")
+    selled = fields.Boolean(string="Selled", related="code_id.selled")
     sello_id = fields.Many2one('proyecto3.codessells', string="Sell")
 
     @api.onchange('code_id')
