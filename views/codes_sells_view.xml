@@ -40,7 +40,15 @@
                         <notebook>
                             <page string="Key code Quantity">
                                 <group>
-                                    <field name="keycode_ids"/>
+                                    <field name="keycode_ids">
+                                        <tree editable="bottom">
+                                            <field name="code_id"/> <!-- domain="[('id', 'not in',self.env['proyecto3.codessells'].search[()])]" -->
+                                            <field name="key_code"/>
+                                            <field name="creation_date"/>
+                                            <field name="sell_date"/>
+                                            <field name="used"/>
+                                        </tree>
+                                    </field>
                                 </group>
                             </page>
                             <page string="Currency">

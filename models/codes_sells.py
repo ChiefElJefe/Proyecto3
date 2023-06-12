@@ -26,7 +26,7 @@ class Codes_sells(models.Model):
     province_id = fields.Many2one('res.country.state', string="Province")
     zip = fields.Char(string="C.P.")
     currency_id = fields.Many2one('res.currency', string="Country", required=True)
-    keycode_ids = fields.One2many('proyecto3.saleline', 'sello_id')
+    keycode_ids = fields.One2many('proyecto3.saleline', 'sello_id', required=True)
     pay_count = fields.Char(string="Count")
     card_name = fields.Char(string="Card name")
     card_number = fields.Integer(string="Card number")
@@ -34,3 +34,6 @@ class Codes_sells(models.Model):
     card_ex_year = fields.Char(string="Expiration Date Year")
     cvv = fields.Integer(string="CVV")
     type_pay = fields.Selection(pay_form, string="Type pay", default='paypar')
+
+
+

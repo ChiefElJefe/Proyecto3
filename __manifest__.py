@@ -23,8 +23,8 @@
     'depends': ['base', 'website','website_sale'],
 
     'assets': {
-        'web.assets_frontend': [
-            'website_sale/static/src/js/website_sale.js',
+        'web.assets_backend': [
+            'proyecto3/static/src/js/contador.js',
         ],
     },
 
