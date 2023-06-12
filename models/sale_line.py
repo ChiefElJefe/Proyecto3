@@ -6,7 +6,7 @@ class Sale_line(models.Model):
     _name = 'proyecto3.saleline'
     _description = 'proyecto3.saleline'
 
-    code_id = fields.Many2one('proyecto3.keycode', string="Code")
+    code_id = fields.Many2one('proyecto3.keycode', string="Code", domain="[('selled', '!=', True)]")
     key_code = fields.Char(string="Key code", related="code_id.key_code")
     creation_date = fields.Date(string="Creation Date", related="code_id.creation_date")
     sell_date = fields.Date(string="sell date", related="code_id.sell_date")

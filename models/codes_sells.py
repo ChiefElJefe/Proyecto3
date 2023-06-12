@@ -39,6 +39,7 @@ class Codes_sells(models.Model):
     def create(self, vals):
         record = super(Codes_sells, self).create(vals)
         record.keycode_ids.code_id.write({'selled': True})
+        record.keycode_ids.code_id.write({'sell_date': fields.Date.today()})
         return record
 
     def write(self, vals):
