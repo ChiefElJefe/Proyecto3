@@ -34,6 +34,9 @@ class Codes_sells(models.Model):
     card_ex_year = fields.Char(string="Expiration Date Year")
     cvv = fields.Integer(string="CVV")
     type_pay = fields.Selection(pay_form, string="Type pay", default='paypar')
+    total_sum = fields.Float(string="Total:", compute="_calc_total")
+    in_tax_sum = fields.Float(string="Base:", compute="_calc_base")
+    tax_sum = fields.Float(string="Tax:", compute="_calc_tax")
 
     @api.model
     def create(self, vals):
@@ -47,3 +50,23 @@ class Codes_sells(models.Model):
             print(record.keycode_ids)
             record.keycode_ids.code_id.write({'selled': True})
         return super(Codes_sells, self).write(vals)
+
+    def _calc_base(self):
+        for record in self:
+            key_register = record.keycode_ids
+            total = 0
+            for rec in key_register:
+                total += rec.code_id.list_price
+            record.in_tax_sum = total
+
+    def _calc_total(self):
+        for record in self:
+            key_register = record.keycode_ids
+            total = 0
+            for rec in key_register:
+                total += rec.code_id.standard_price
+            record.total_sum = total
+
+    def _calc_tax(self):
+        for record in self:
+            record.tax_sum = record.total_sum - record.in_tax_sum

@@ -50,6 +50,11 @@
                                         </tree>
                                     </field>
                                 </group>
+                                <group>
+                                    <field name="in_tax_sum"/>
+                                    <field name="tax_sum"/>
+                                    <field name="total_sum"/>
+                                </group>
                             </page>
                             <page string="Currency">
                                 <group>
