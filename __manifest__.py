@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'website','website_sale'],
+    'depends': ['base', 'website', 'website_sale'],
 
     'assets': {
         'web.assets_backend': [
@@ -30,7 +30,8 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/sells_security.xml',
+        'security/ir.model.access.csv',
         'views/wizard_generator_view.xml',
         'views/sale_line_view.xml',
         'views/codes_sells_view.xml',
