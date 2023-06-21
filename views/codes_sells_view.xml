@@ -50,10 +50,11 @@
                                         </tree>
                                     </field>
                                 </group>
-                                <group>
-                                    <field name="in_tax_sum"/>
-                                    <field name="tax_sum"/>
-                                    <field name="total_sum"/>
+                                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                    <field name="in_tax_sum" colspan="2" string="Base"/>
+                                    <field name="tax_sum" colspan="2" string="Tax"/>
+                                    <field name="total_sum" style="font-weight: bold; font-size: 24px;" colspan="2"
+                                           string="Total"/>
                                 </group>
                             </page>
                             <page string="Currency">
