@@ -22,12 +22,6 @@
     # any module necessary for this one to work correctly
     'depends': ['base', 'website', 'website_sale'],
 
-    'assets': {
-        'web.assets_backend': [
-            'proyecto3/static/src/js/contador.js',
-        ],
-    },
-
     # always loaded
     'data': [
         'security/sells_security.xml',
