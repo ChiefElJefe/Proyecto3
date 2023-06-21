@@ -1,8 +1,8 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="proyecto3_codessells_tree">
-            <field name="name">proyecto3.codessells.tree</field>
-            <field name="model">proyecto3.codessells</field>
+        <record model="ir.ui.view" id="proyecto3_invoicesells_tree">
+            <field name="name">proyecto3.invoicesells.tree</field>
+            <field name="model">proyecto3.invoicesells</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -13,23 +13,12 @@
             </field>
         </record>
 
-        <record model="ir.ui.view" id="proyecto3_codessells_form">
-            <field name="name">proyecto3.codessells.form</field>
-            <field name="model">proyecto3.codessells</field>
+        <record model="ir.ui.view" id="proyecto3_invoicesells_form">
+            <field name="name">proyecto3.invoicesells.form</field>
+            <field name="model">proyecto3.invoicesells</field>
             <field name="arch" type="xml">
                 <form string="Key code">
-                    <header>
-                        <button name="invoiced" class="oe_highlight" states="draft" string="Invoiced" type="object"
-                                help="Sell invoiced"/>
-                        <field name="state" widget="statusbar" statusbar_visible="draft,invoiced"/>
-                    </header>
                     <sheet>
-                        <div name="button_box" position="inside">
-                            <button class="oe_stat_button" type="object" name="get_invoices"
-                                    icon="fa-pencil-square-o" attrs="{'invisible': [('invoices_count', '=', 0)]}">>
-                                <field string="Invoices" name="invoices_count" widget="statinfo"/>
-                            </button>
-                        </div>
                         <group>
                             <group string="User">
                                 <field name="name"/>
@@ -53,7 +42,7 @@
                                 <group>
                                     <field name="keycode_ids">
                                         <tree editable="bottom">
-                                            <field name="code_id"/> <!-- domain="[('id', 'not in',self.env['proyecto3.codessells'].search[()])]" -->
+                                            <field name="code_id"/> <!-- domain="[('id', 'not in',self.env['proyecto3.invoicesells'].search[()])]" -->
                                             <field name="key_code"/>
                                             <field name="creation_date"/>
                                             <field name="sell_date"/>
@@ -94,9 +83,9 @@
             </field>
         </record>
 
-        <record model="ir.actions.act_window" id="proyecto3_codessells_action">
-            <field name="name">Sells</field>
-            <field name="res_model">proyecto3.codessells</field>
+        <record model="ir.actions.act_window" id="proyecto3_invoicesells_action">
+            <field name="name">Invoice</field>
+            <field name="res_model">proyecto3.invoicesells</field>
             <field name="view_mode">tree,form</field>
         </record>
     </data>

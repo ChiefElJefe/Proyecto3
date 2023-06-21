@@ -1,10 +1,11 @@
-from datetime import datetime
-
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
 
 pay_form = [
     ('credit', 'Credit Card'), ('paypar', 'Paypar')
+]
+
+state_form = [
+    ('draft', 'Draft'), ('invoiced', 'Invoiced')
 ]
 
 
@@ -37,6 +38,9 @@ class Codes_sells(models.Model):
     total_sum = fields.Float(string="Total:", compute="_calc_total")
     in_tax_sum = fields.Float(string="Base:", compute="_calc_base")
     tax_sum = fields.Float(string="Tax:", compute="_calc_tax")
+    state = fields.Selection(state_form, string="State", required=True, readonly=True, copy=False,
+                             tracking=True, default='draft')
+    invoices_count = fields.Integer(compute='compute_count')
 
     @api.model
     def create(self, vals):
@@ -70,3 +74,52 @@ class Codes_sells(models.Model):
     def _calc_tax(self):
         for record in self:
             record.tax_sum = record.total_sum - record.in_tax_sum
+
+    def invoiced(self):
+        for rec in self:
+            rec.write({
+                'state': "invoiced"
+            })
+            rec.env['proyecto3.invoicesells'].create({
+                'name': rec.name,
+                'first_lastname': rec.first_lastname,
+                'second_lastname': rec.second_lastname,
+                'email': rec.email,
+                'sell_date': rec.sell_date,
+                'street': rec.street,
+                'portal': rec.portal,
+                'door': rec.door,
+                'mobilphone': rec.mobilphone,
+                'city': rec.city,
+                'country_id': rec.country_id.id,
+                'province_id': rec.province_id.id,
+                'zip': rec.zip,
+                'currency_id': rec.currency_id.id,
+                'pay_count': rec.pay_count,
+                'card_name': rec.card_name,
+                'card_number': rec.card_number,
+                'card_ex_month': rec.card_ex_month,
+                'card_ex_year': rec.card_ex_year,
+                'cvv': rec.cvv,
+                'type_pay': rec.type_pay,
+                'total_sum': rec.total_sum,
+                'in_tax_sum': rec.in_tax_sum,
+                'tax_sum': rec.tax_sum,
+                'sell_id': rec.id,
+            })
+
+    def compute_count(self):
+        for record in self:
+            record.invoices_count = self.env['proyecto3.invoicesells'].search_count(
+                [('sell_id', '=', self.id)])
+
+    def get_invoices(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Invoices',
+            'view_mode': 'tree',
+            'res_model': 'proyecto3.invoicesells',
+            'domain': [('sell_id', '=', self.id)],
+            'context': "{'create': False}"
+        }

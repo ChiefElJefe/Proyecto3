@@ -67,5 +67,7 @@
                   action="proyecto3.proyecto3_wizardgenerator_action"/>
         <menuitem name="Sells" id="proyecto3.menu_3_list" parent="proyecto3.menu_root"
                   action="proyecto3.proyecto3_codessells_action"/>
+        <menuitem name="Invoices" id="proyecto3.menu_4_list" parent="proyecto3.menu_root"
+                  action="proyecto3.proyecto3_invoicesells_action"/>
     </data>
 </odoo>
