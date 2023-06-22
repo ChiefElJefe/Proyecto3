@@ -28,6 +28,7 @@
         'security/ir.model.access.csv',
         'views/wizard_generator_view.xml',
         'views/sale_line_view.xml',
+        'views/invoice_line_view.xml',
         'views/codes_sells_view.xml',
         'views/invoice_sells_view.xml',
         'views/key_code_view.xml',

@@ -80,7 +80,7 @@ class Codes_sells(models.Model):
             rec.write({
                 'state': "invoiced"
             })
-            rec.env['proyecto3.invoicesells'].create({
+            invoice = rec.env['proyecto3.invoicesells'].create({
                 'name': rec.name,
                 'first_lastname': rec.first_lastname,
                 'second_lastname': rec.second_lastname,
@@ -107,6 +107,15 @@ class Codes_sells(models.Model):
                 'tax_sum': rec.tax_sum,
                 'sell_id': rec.id,
             })
+            for keys in rec.keycode_ids:
+                rec.env['proyecto3.invoiceline'].create({
+                    'code_id': keys.code_id.id,
+                    'key_code': keys.key_code,
+                    'creation_date': keys.creation_date,
+                    'sell_date': keys.sell_date,
+                    'selled': keys.selled,
+                    'invoice_id': invoice.id,
+                })
 
     def compute_count(self):
         for record in self:
@@ -118,7 +127,7 @@ class Codes_sells(models.Model):
         return {
             'type': 'ir.actions.act_window',
             'name': 'Invoices',
-            'view_mode': 'tree',
+            'view_mode': 'tree,form',
             'res_model': 'proyecto3.invoicesells',
             'domain': [('sell_id', '=', self.id)],
             'context': "{'create': False}"
