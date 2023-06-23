@@ -3,7 +3,11 @@ accounter_access_codessells,Accounter,model_proyecto3_codessells,accounter_acces
 accounter_access_keycode,Accounter,model_proyecto3_keycode,accounter_access,1,1,1,1
 accounter_access_saleline,Accounter,model_proyecto3_saleline,accounter_access,1,1,1,1
 accounter_access_wizardgenerator,Accounter,model_proyecto3_wizardgenerator,accounter_access,1,1,1,1
+accounter_access_invoicesells,Accounter,model_proyecto3_invoicesells,accounter_access,1,1,1,1
+accounter_access_invoiceline,Accounter,model_proyecto3_invoiceline,accounter_access,1,1,1,1
 director_access_codessells,Director,model_proyecto3_codessells,director_access,1,1,1,1
 director_access_keycode,Director,model_proyecto3_keycode,director_access,1,1,1,1
 director_access_saleline,Director,model_proyecto3_saleline,director_access,1,1,1,1
 director_access_wizardgenerator,Director,model_proyecto3_wizardgenerator,director_access,1,1,1,1
+director_access_invoicesells,Director,model_proyecto3_invoicesells,director_access,1,1,1,1
+director_access_invoiceline,Director,model_proyecto3_invoiceline,director_access,1,1,1,1

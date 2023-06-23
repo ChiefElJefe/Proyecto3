@@ -31,6 +31,8 @@
         'views/invoice_line_view.xml',
         'views/codes_sells_view.xml',
         'views/invoice_sells_view.xml',
+        'views/report.xml',
+        'views/report_invoices.xml',
         'views/key_code_view.xml',
     ],
     # only loaded in demonstration mode

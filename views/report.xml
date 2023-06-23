@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+    id="report_invoice"
+    string="Invoices"
+    model="proyecto3.invoicesells"
+    report_type="qweb-pdf"
+    name="proyecto3.report_invoices"
+    file="proyecto3.report_invoices"/>
+</odoo>
