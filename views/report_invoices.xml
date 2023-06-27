@@ -2,25 +2,99 @@
     <template id="report_invoices">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
-                <h2>Arribas COMS</h2>
-                <t t-esc="doc.name"/>
-                <t t-esc="doc.first_lastname"/>
-                <t t-esc="doc.second_lastname"/>
-                <t t-esc="doc.sell_date"/>
-                <t t-esc="doc.street"/>
-                <t t-esc="doc.portal"/>
-                <t t-esc="doc.door"/>
-                <t t-esc="doc.city"/>
-                <t t-esc="doc.country_id.name"/>
-                <t t-esc="doc.province_id.name"/>
-                <t t-esc="doc.zip"/>
-                <t t-foreach="doc.keycode_ids" t-as="keys">
-                    <t t-esc="keys.code_id.name"/>
-                    <t t-esc="keys.key_code"/>
-                    <t t-esc="keys.creation_date"/>
-                    <t t-esc="keys.sell_date"/>
-                </t>
-                <t t-esc="doc.total_sum"/>
+                <div class="page">
+                    <h2>
+                        <strong>Arribas COMS</strong>
+                    </h2>
+                    <div class="mb-4 mt-3">
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>User:</strong>
+                                <span>
+                                    <t t-esc="doc.name"/>
+                                    <t t-esc="doc.first_lastname"/>
+                                    <t t-esc="doc.second_lastname"/>
+                                </span>
+                            </div>
+
+                            <div class="col-6">
+                                <strong>Sell Date: </strong>
+                                <span t-field="doc.sell_date"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Street: </strong>
+                                <span t-field="doc.street"/>
+                            </div>
+
+                            <div class="col-6">
+                                <strong>Portal:</strong>
+                                <span t-field="doc.portal"/>
+                            </div>
+
+                            <div class="col-6">
+                                <strong>Door:</strong>
+                                <span t-field="doc.door"/>
+                            </div>
+
+                            <div class="col-6">
+                                <strong>City:</strong>
+                                <span t-field="doc.city"/>
+                            </div>
+
+                            <div class="col-6">
+                                <strong>Country:</strong>
+                                <span t-field="doc.country_id.name"/>
+                            </div>
+
+                            <div class="col-6">
+                                <strong>Province:</strong>
+                                <span t-field="doc.province_id.name"/>
+                            </div>
+
+                            <div class="col-6">
+                                <strong>Zip:</strong>
+                                <span t-field="doc.zip"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span>Keys</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.keycode_ids" t-as="keys">
+                                <tr>
+                                    <td>
+                                        <span t-field="keys.code_id.name"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-field="keys.key_code"/>
+                                    </td>
+
+                                    <td>
+                                        <span t-field="keys.code_id.standard_price"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <div>
+                        <h2>
+                            <strong>
+                                <span t-field="doc.total_sum"/>
+                            </strong>
+                        </h2>
+                    </div>
+                </div>
             </t>
         </t>
     </template>
